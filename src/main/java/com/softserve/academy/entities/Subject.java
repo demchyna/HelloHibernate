@@ -9,7 +9,7 @@ public class Subject {
     private int id;
     private String title;
     private double credits;
-    private List<Student> students;
+//    private List<Student> students;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -42,14 +42,14 @@ public class Subject {
         this.credits = credits;
     }
 
-    @ManyToMany(mappedBy = "subjects")
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
-    }
+//    @ManyToMany(mappedBy = "subjects")
+//    public List<Student> getStudents() {
+//        return students;
+//    }
+//
+//    public void setStudents(List<Student> students) {
+//        this.students = students;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -71,5 +71,14 @@ public class Subject {
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (int)credits;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Subject{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", credits=" + credits +
+                '}';
     }
 }

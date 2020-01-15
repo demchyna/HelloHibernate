@@ -8,7 +8,7 @@ import java.util.List;
 public class Group {
     private int id;
     private String title;
-    private List<Student> students;
+//    private List<Student> students;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -31,14 +31,14 @@ public class Group {
         this.title = title;
     }
 
-    @OneToMany(mappedBy = "group")
-    public List<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(List<Student> students) {
-        this.students = students;
-    }
+//    @OneToMany(mappedBy = "group")
+//    public List<Student> getStudents() {
+//        return students;
+//    }
+//
+//    public void setStudents(List<Student> students) {
+//        this.students = students;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -58,5 +58,13 @@ public class Group {
         int result = id;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Group{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                '}';
     }
 }

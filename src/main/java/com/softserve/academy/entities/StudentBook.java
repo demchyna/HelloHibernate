@@ -71,4 +71,14 @@ public class StudentBook {
         result = 31 * result + (number != null ? number.hashCode() : 0);
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "StudentBook{" +
+                "id=" + id +
+                ", series='" + series + '\'' +
+                ", number='" + number + '\'' +
+                ", student=" + student +
+                '}';
+    }
 }

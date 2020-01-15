@@ -55,7 +55,7 @@ public class Student {
         this.course = course;
     }
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "studentbook_id")
     public StudentBook getStudentBook() {
         return studentBook;
@@ -65,7 +65,7 @@ public class Student {
         this.studentBook = studentBook;
     }
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id")
     public Group getGroup() {
         return group;
@@ -113,5 +113,18 @@ public class Student {
         result = 31 * result + studentBook.hashCode();
         result = 31 * result + group.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", course=" + course +
+                ", studentBook=" + studentBook +
+                ", group=" + group +
+                ", subjects=" + subjects +
+                '}';
     }
 }
